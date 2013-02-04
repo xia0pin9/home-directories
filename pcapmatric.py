@@ -144,7 +144,7 @@ def main():
     """ pcap paser for machine learning. """
     if len(sys.argv) < 3:
         usage()
-        sys.exit(1)
+        sys.exit(0)
     else:
         try:
             opts, args = getopt.getopt(sys.argv[1:], "hs:d:o:p:m:n:", ["help", "single=", "directory=", "app=", "maxlen=", "minlen="])
