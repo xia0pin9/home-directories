@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+"""
+This script can take a pcap format network flow data file and extrate all the contained network flow information, such as data length, request frequence, request interval, etc.
+"""
+
 import getopt, sys, os
 import dpkt
 import socket, hashlib, getopt
