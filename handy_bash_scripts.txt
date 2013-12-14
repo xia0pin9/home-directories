@@ -9,3 +9,5 @@ curl -XGET 'http://localhost:9200/_cluster/health?pretty=true'
 curl -XGET 'http://localhost:9200/_status/?pretty=true' 
 curl -XGET 'http://localhost:9200/_cluster/state?pretty=true'
 curl -XGET 'localhost:9200/_nodes?clear&all&pretty=true' > ~/temp.txt
+curl -X POST localhost:9200/index/_search -d 
+'{ "size":5, "query" : { "match_all":{} } , "sort" : [ { "@timestamp" : { "order":"asc" } } ] }'
