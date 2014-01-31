@@ -3,3 +3,11 @@ du -h . | grep "^[0-9]\{2,\}.\{0,1\}[0-9]\{0,1\}M"
 
 2. Find the files which contain xxx
 find . -name "*.html" -print0 | xargs -0 grep "bootstrap.min.js"
+
+3. Elasticsearch
+curl -XGET 'http://localhost:9200/_cluster/health?pretty=true'
+curl -XGET 'http://localhost:9200/_status/?pretty=true' 
+curl -XGET 'http://localhost:9200/_cluster/state?pretty=true'
+curl -XGET 'localhost:9200/_nodes?clear&all&pretty=true' > ~/temp.txt
+curl -X POST 'localhost:9200/index/_search/?pretty=ture' -d 
+'{ "size":2, "query" : { "match_all":{} } , "sort" : [ { "@timestamp" : { "order":"asc" } } ] }'
