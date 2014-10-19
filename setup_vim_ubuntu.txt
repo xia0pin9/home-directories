@@ -1,0 +1,22 @@
+This is to download source file, install vim to customized location
+
+1) Download vim-x.x.tar.bz2 and extract
+
+2) Download ncurses-x.x.tar.gz and extract
+
+3) Compile ncurses and install it to ncurses to home directory
+   ./configure --prefix=/home/xxx/ncurses --without-cxx-binding
+
+4) Compile vim with following option
+   env LDFLAGS=-L/home/xxx/ncurses/lib ./configure --prefix=/home/xxx/vim
+   
+5) Replace vi by setup PATH and create alias
+   export PATH=/home/xxx/vim/bin:$PATH
+   alias vi="vim"
+
+5) Fix backspace for deleting, enable syntax highlight, autoindent, 4space for tab by adding the following in .vimrc
+   syntax on
+   set autoindent
+   set nocompatible
+   set backspace=2
+   set tabstop=4 shiftwidth=4 expandtab
