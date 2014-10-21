@@ -11,3 +11,9 @@ curl -XGET 'http://localhost:9200/_cluster/state?pretty=true'
 curl -XGET 'localhost:9200/_nodes?clear&all&pretty=true' > ~/temp.txt
 curl -X POST 'localhost:9200/index/_search/?pretty=ture' -d 
 '{ "size":2, "query" : { "match_all":{} } , "sort" : [ { "@timestamp" : { "order":"asc" } } ] }'
+
+4. Cleanup unused linux kernels in ubuntu
+dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
+
+5. Rename multiple file names at once
+for f in fgh*; do mv "$f" "${f/fgh/xxx}";done
