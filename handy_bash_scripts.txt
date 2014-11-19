@@ -17,3 +17,6 @@ dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/"
 
 5. Rename multiple file names at once
 for f in fgh*; do mv "$f" "${f/fgh/xxx}";done
+
+6. AWK greater than
+awk '$4>=2{print}' filename
