@@ -1,0 +1,10 @@
+1, install emacs from brew:
+   brew install --cocoa --srgb emacs
+   http://www.emacswiki.org/emacs/EmacsForMacOS#toc16
+
+2, install maxtex:
+   https://tug.org/mactex/
+
+3, install auctex from within emacs
+
+4, install FixMacTex from within /Applications/Tex
