@@ -21,3 +21,7 @@ for f in fgh*; do mv "$f" "${f/fgh/xxx}";done
 6. AWK with numbers (compare, sum)
 awk '$4>=2{print}' filename
 awk -F ":" '{s+=$2} END {print s}' filename
+
+7. Handle space characters in file path
+find . -name "*.txt" -print0 | xargs -0
+cat pathlist.txt | perl -ne 's|\n|\000|g;print'| xargs -0 
