@@ -1,5 +1,18 @@
+(setq ns-pop-up-frames nil)
+
+(getenv "PATH")
+ (setenv "PATH"
+         (concat
+            "/usr/texbin" ":"
+            (getenv "PATH")))
+
 (add-to-list 'exec-path "/usr/local/bin")
-(setq ispell-program-name "aspell")
+;; (setq ispell-program-name "aspell")
+;; (require 'ispell)
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
 
 ;; Visual line mode
 
@@ -66,3 +79,5 @@
 ;; Auctex master file
 
 ;;(setq-default TeX-master "paper") ; Query for master file.
+;;
+(setq LaTeX-command-style '(("" "%(PDF)%(latex) -file-line-error %S%(PDFout)")))
