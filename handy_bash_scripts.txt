@@ -25,3 +25,6 @@ awk -F ":" '{s+=$2} END {print s}' filename
 7. Handle space characters in file path
 find . -name "*.txt" -print0 | xargs -0
 cat pathlist.txt | perl -ne 's|\n|\000|g;print'| xargs -0 
+
+8. Split txt evenly
+awk -v lines=200000 -v fmt="%d.txt" '{print>sprintf(fmt,1+int((NR-1)/lines))}'
