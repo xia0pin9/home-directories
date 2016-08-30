@@ -28,3 +28,6 @@ cat pathlist.txt | perl -ne 's|\n|\000|g;print'| xargs -0
 
 8. Split txt evenly
 awk -v lines=200000 -v fmt="%d.txt" '{print>sprintf(fmt,1+int((NR-1)/lines))}'
+
+9. Valgrind debug
+valgrind --tool=memcheck --track-origins=yes --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes ./command
